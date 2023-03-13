@@ -1,40 +1,77 @@
-let year    = prompt('Ваш рік народження');
-let city    = prompt('В якому місті проживаєте');
-let sport   = prompt('Ваш улюблений вид спорту');
+let yearOfBirth = Number(prompt('Ваш рік народження'));
+let selectedCity = prompt('В якому місті проживаєте');
+let selectedSport = prompt('Ваш улюблений вид спорту');
+let messageAboutCity;
+let messageAboutSport;
+let messageAboutАge;
 
-let a;
-let b;
-let s;
+if (yearOfBirth > 2023)
+{messageAboutАge = 'Ви не можете жити у майбутньому'}
+else if (yearOfBirth < 0)
+{messageAboutАge = 'Ви ввели від`ємне число'}
+else {
+switch (yearOfBirth){
+case (null):
+case (''):
+    messageAboutАge = "Шкода, що Ви не захотіли ввести свій вік";
+break;
+default:
+    messageAboutАge = `Вам ${2023 - yearOfBirth} років`;
+}
+}
 
+switch (selectedCity){
+    case(null):
+    case (''):
+        messageAboutCity = "Шкода, що Ви не захотіли ввести своє місто";
+        break;
+    case "Київ":
+    case "Kyiv":
+    case "київ":
+    case "kyiv":
+        messageAboutCity = "Ти живеш у столиці України";
+        break;
+    case "Вашингтон":
+    case "Washington":
+    case "вашингтон":
+    case "washington":
+        messageAboutCity = "Ти живеш у столиці Сполучених Штатів Америки";
+        break;
+    case "Київ":
+    case "Kyiv":
+    case "київ":
+    case "kyiv":
+        messageAboutCity = "Ти живеш у столиці Англії";
+        break;
+    default:
+        messageAboutCity = `Ти живеш у місті ${selectedCity}`;
+}
 
-if (isNaN(0/year) !== true)
-    {a = 'Вам ' + (2023 - +year) + ' років'}
-else
-    {a = 'Шкода, що Ви не захотіли ввести свій вік'};
-if (year === null)  
-    {a = 'Шкода, що Ви не захотіли ввести свій вік'};
+switch (selectedSport){
+    case(null):
+    case (''):
+        messageAboutSport = "Шкода, що Ви не захотіли ввести свій улюблений вид спорту";
+        break;
+    case "Бокс":
+    case "Box":
+    case "бокс":
+    case "box":
+        messageAboutSport = "Круто! Хочеш стати як Майк Тайсон?";
+        break;
+    case "Баскетбол":
+    case "Basketball":
+    case "баскетбол":
+    case "basketball":
+        messageAboutSport = "Круто! Хочеш стати як Майк Джордан?";
+        break;
+    case "Футбол":
+    case "Football":
+    case "футбол":
+    case "football":
+        messageAboutSport = "Круто! Хочеш стати як Криштиану Рональдо?";
+        break;
+    default:
+        messageAboutSport = `${selectedSport} гарний вид спорту`;
+}
 
-
-if (city !== '')   
-    {b = 'Ви живете у місті ' + city;
-    if (city ==='Київ')     {b = 'Ви живете у столиці України'}
-    if (city ==='Вашингтон'){b = 'Ви живете у столиці США'}
-    if (city ==='Лондон')   {b = 'Ви живете у столиці Британії'}}
-else 
-    {b = 'Шкода, що Ви не захотіли ввести своє місце проживання'};
-if (city === null)  
-    {b = 'Шкода, що Ви не захотіли ввести своє місце проживання'};
-
-   
-if (sport !== '') 
-    {s = sport + ' гарний вид спорту'; 
-    if (sport ==='Бокс')     {s = 'Круто! Хочеш стати як Майк Тайсон?'}
-    if (sport ==='Баскетбол'){s = 'Круто! Хочеш стати як Майк Джордан?'}
-    if (sport ==='Футбол')   {s = 'Круто! Хочеш стати як Криштиану Рональдо?'}}      
-else
-    {s = 'Шкода, що Ви не захотіли ввести свій улюблений вид спорту'};
-if (sport === null) 
-    {s = 'Шкода, що Ви не захотіли ввести свій улюблений вид спорту'};
-
-    
-    alert  (a + ' \n' + b + ' \n' + s); 
+alert  (messageAboutАge + ' \n' + messageAboutCity + ' \n' + messageAboutSport);
